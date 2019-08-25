@@ -1,0 +1,74 @@
+html, body {
+    height: 100%;
+    user-select: none;
+}
+
+#container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#prompt {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: gray solid 3px;
+    background: lightgray;
+    border-radius: 20px;
+}
+
+#answers {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+
+}
+
+#answers >div {
+    border: solid 3px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#answers :nth-child(1)   {
+    border-color: blue;
+    background: lightblue;
+} 
+
+#answers :nth-child(2)   {
+    border-color: red;
+    background: pink;
+} 
+
+#answers :nth-child(3)   {
+    border-color: yellow;
+    background: lightyellow;
+} 
+
+#answers :nth-child(4)   {
+    border-color: green ;
+    background: lightgreen;
+} 
+
+#answers [data-notselected] {
+    border-color: gray;
+    background: lightgray;
+} 
+
+#answers[data-selectionconfirmed] [data-correct=true]{
+    box-shadow: 0 0 30px 3px green;
+}
+
+#answers[data-selectionconfirmed] [data-correct=false]{
+    box-shadow: 0 0 30px 3px red;
+}
+
+#answers[data-selectionconfirmed] [data-correct=true][data-selected] {
+    box-shadow: 0 0 30px 15px green;
+}
+
+#answers[data-selectionconfirmed] [data-correct=false][data-selected]{
+    box-shadow: 0 0 30px 3px red;
+}
