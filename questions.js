@@ -7,7 +7,7 @@ const questions = [
                 text: "Norden", 
             },
             {
-                correct: true,
+                correct: false,
                 text: "Süden", 
             },
             {
@@ -223,26 +223,180 @@ const questions = [
         points: 20
     },
     {
-        prompt: "Zwei Dioptrien sind 50cm. Wieviel cm sind 4 Dioptrien?",
+        prompt: "Wie weit ist es von Greifswald/Cottbus nach Grimstad (Norwegen)?",
         answers: [
             {
-                correct: false,
-                text: "So viele Dioptrien gibt's gar nicht", 
+                correct: true,
+                text: "Zehn Stunden"
             },
             {
                 correct: false,
-                text: "25", 
+                text: "Zehn Meilen"
             },
             {
                 correct: false,
-                text: "100", 
+                text: "Zehn Liter"
             },
             {
                 correct: false,
-                text: "So viele Zentimeter gibt's gar nicht", 
+                text: "Zu weit"
             }
         ],
         points: 20
+    },
+    {
+        prompt: "Welcher Tanz ist das?",
+        answers: [
+            {
+                correct: false,
+                text: "Nutella"
+            },
+            {
+                correct: false,
+                text: "Nudossi"
+            },
+            {
+                correct: false,
+                text: "Nugatti"
+            },
+            {
+                correct: true,
+                text: "Samba"
+            }
+        ],
+        points: 20
+    },
+    {
+        prompt: "Welche dieser Farben ist Blau? (coloring needed)",
+        answers: [
+            {
+                correct: false,
+                text: "Rot"
+            },
+            {
+                correct: false,
+                text: "Grün"
+            },
+            {
+                correct: false,
+                text: "Blau"
+            },
+            {
+                correct: false,
+                text: "Gelb"
+            }
+        ],
+        points: 20
+    },
+    {
+        prompt: "Zwei Dioptrien sind 50cm. Wieviel cm sind 4 Dioptrien? (add true)",
+        answers: [
+            {
+                correct: false,
+                text: "So viele Dioptrien gibt's gar nicht",
+            },
+            {
+                correct: false,
+                text: "25",
+            },
+            {
+                correct: false,
+                text: "100",
+            },
+            {
+                correct: false,
+                text: "So viele Zentimeter gibt's gar nicht",
+            }
+        ],
+        points: 50
+    },
+    {
+        prompt: "Wie viele Fragen haben sie heute schon in dieser Show beantwortet? (add true)",
+        answers: [
+            {
+                correct: false,
+                text: "13"
+            },
+            {
+                correct: false,
+                text: "15"
+            },
+            {
+                correct: false,
+                text: "20"
+            },
+            {
+                correct: false,
+                text: "Zu viele"
+            }
+        ],
+        points: 50
+    },
+    {
+        prompt: "Wer ist das?",
+        answers: [
+            {
+                correct: true,
+                text: "Felix"
+            },
+            {
+                correct: false,
+                text: "Flora"
+            },
+            {
+                correct: false,
+                text: "Frieder"
+            },
+            {
+                correct: false,
+                text: "Lisanne"
+            }
+        ],
+        points: 50
+    },
+    {
+        prompt: "Was misst man in Teelöffeln pro Lichtjahr?",
+        answers: [
+            {
+                correct: false,
+                text: "Länge"
+            },
+            {
+                correct: false,
+                text: "Zeit"
+            },
+            {
+                correct: false,
+                text: "Geschwindigkeit"
+            },
+            {
+                correct: true,
+                text: "Fläche"
+            }
+        ],
+        points: 50
+    },
+    {
+        prompt: "Was ist ein Bonus?",
+        answers: [
+            {
+                correct: true,
+                text: "Eine isländische Supermarktkette"
+            },
+            {
+                correct: true,
+                text: "Ein experimenteller Reaktortyp"
+            },
+            {
+                correct: true,
+                text: "Ein Ort in Texas (USA) im Wharton County"
+            },
+            {
+                correct: true,
+                text: "Ein Asteroid mit der Nummer 10028"
+            }
+        ],
+        points: 50
     }
 ];
 let points = 0;
