@@ -87,7 +87,7 @@ const questions = [
             }
         ],
         points: 10
-    },
+    },// ei, frei, drei, vier
     {
         prompt: "Wer hat die KunstWerkstätten in Greifswald gegründet?",
         answers: [
@@ -105,7 +105,7 @@ const questions = [
             },
             {
                 correct: false,
-                text: "MISSING OPTION"
+                text: "Caspar David Friedrich"
             }
         ],
         points: 10
@@ -134,7 +134,7 @@ const questions = [
         points: 10
     },*/
     {
-        prompt: "Wer ist der Gastgeber?",
+        prompt: "Der Hase im Rausch - Wer ist der Gastgeber?",
         answers: [
             {
                 correct: false,
@@ -150,11 +150,33 @@ const questions = [
             },
             {
                 correct: false,
-                text: "OPTION NEEDS IMPROVEMENT"
+                text: "Manfred"
             }
         ],
         points: 10
     },
+    /*{
+        prompt: "Der Hase im Rausch - Wer ist der Gastgeber?",
+        answers: [
+            {
+                correct: false,
+                text: "Der Hase"
+            },
+            {
+                correct: true,
+                text: "Der Igel"
+            },
+            {
+                correct: false,
+                text: "Der Löwe"
+            },
+            {
+                correct: false,
+                text: "Mutti"
+            }
+        ],
+        points: 10
+    },*/
     {
         prompt: "Welcher berühmte Künstler hat dieses Bild gemalt?",
         answers: [
@@ -209,7 +231,7 @@ const questions = [
             },
             {
                 correct: true,
-                text: "Die Prinzen - true?"
+                text: "Die Prinzen"
             },
             {
                 correct: false,
@@ -217,13 +239,13 @@ const questions = [
             },
             {
                 correct: false,
-                text: "HOLLYWOOD"
+                text: "Hollywood"
             }
         ],
         points: 20
     },
     {
-        prompt: "Wie weit ist es von Greifswald/Cottbus nach Grimstad (Norwegen)?",
+        prompt: "Wie weit ist es von Greifswald nach Grimstad (Norwegen)?",
         answers: [
             {
                 correct: true,
@@ -238,14 +260,37 @@ const questions = [
                 text: "Zehn Liter"
             },
             {
-                correct: false,
+                correct: true,
                 text: "Zu weit"
             }
         ],
         points: 20
     },
+    /*{
+        prompt: "Wie weit ist es von Cottbus nach Grimstad (Norwegen)?",
+        answers: [
+            {
+                correct: true,
+                text: "Zehn Stunden"
+            },
+            {
+                correct: false,
+                text: "Zehn Meilen"
+            },
+            {
+                correct: false,
+                text: "Zehn Liter"
+            },
+            {
+                correct: true,
+                text: "Zu weit"
+            }
+        ],
+        points: 20
+    },*/
     {
         prompt: "Welcher Tanz ist das?",
+        // Samba, Rumba, Tango, Walzer
         answers: [
             {
                 correct: false,
@@ -289,14 +334,14 @@ const questions = [
         points: 20
     },
     {
-        prompt: "Zwei Dioptrien sind 50cm. Wieviel cm sind 4 Dioptrien? (add true)",
+        prompt: "Zwei Dioptrien sind 50cm. Wieviel cm sind 4 Dioptrien?",
         answers: [
             {
                 correct: false,
                 text: "So viele Dioptrien gibt's gar nicht",
             },
             {
-                correct: false,
+                correct: true,
                 text: "25",
             },
             {
@@ -314,7 +359,7 @@ const questions = [
         prompt: "Wie viele Fragen haben sie heute schon in dieser Show beantwortet? (add true)",
         answers: [
             {
-                correct: false,
+                correct: true,
                 text: "13"
             },
             {
@@ -326,7 +371,7 @@ const questions = [
                 text: "20"
             },
             {
-                correct: false,
+                correct: true,
                 text: "Zu viele"
             }
         ],
