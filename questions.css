@@ -11,12 +11,24 @@ html, body {
     flex-direction: column;
 }
 
-#prompt {
+#subcontainer {
+    display: flex;
+}
+
+#prompt, #newPoints {
     padding: 20px;
     margin-bottom: 20px;
     border: gray solid 3px;
     background: lightgray;
-    border-radius: 20px;
+}
+
+#newPoints {
+    margin-left: -3px;
+    border-radius: 0 20px 20px 0;
+}
+
+#prompt {
+    border-radius: 20px 0 0 20px;
 }
 
 #answers {
@@ -72,3 +84,36 @@ html, body {
 #answers[data-selectionconfirmed] [data-correct=false][data-selected]{
     box-shadow: 0 0 30px 3px red;
 }
+
+/* for the question about blue: */
+
+#answers >div.colorful {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#answers :nth-child(1).colorful   {
+    color: green;
+    background: lightyellow;
+} 
+
+#answers :nth-child(2).colorful   {
+    color: yellow;
+    background: lightblue;
+} 
+
+#answers :nth-child(3).colorful   {
+    color: red;
+    background: lightgreen;
+} 
+
+#answers :nth-child(4).colorful   {
+    color: blue;
+    background: pink;
+} 
+
+#answers [data-notselected].colorful {
+    border-color: gray;
+    background: lightgray;
+    color: black;
+} 

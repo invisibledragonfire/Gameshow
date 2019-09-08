@@ -312,7 +312,8 @@ const questions = [
         points: 20
     },
     {
-        prompt: "Welche dieser Farben ist Blau? (coloring needed)",
+        prompt: "Welche dieser Farben ist Blau?",
+        colorful: true,
         answers: [
             {
                 correct: false,
@@ -453,6 +454,7 @@ let confirmedAnswerShown = false;
 const promptDiv = document.getElementById("prompt");
 const answerDiv = document.getElementById("answers");
 const pointDiv = document.getElementById("points");
+const newPointsDiv = document.getElementById("newPoints");
 
 pointDiv.innerHTML = points;
 
@@ -477,11 +479,13 @@ const selectAnswer = function(selection) {
 const setQuestion = function(id) {
     const question = questions[id];
     promptDiv.innerHTML = question.prompt;
+    newPointsDiv.innerHTML = question.points;
     answerDiv.innerHTML = "";
     answerDiv.removeAttribute("data-selectionconfirmed")
     question.answers.forEach(answer => {
         const newAnswer = document.createElement("div");
         newAnswer.innerHTML = answer.text;
+        question.colorful && newAnswer.classList.add("colorful");
         newAnswer.setAttribute("data-correct", answer.correct);
         newAnswer.addEventListener("click", selectAnswer);
         answerDiv.appendChild(newAnswer);
