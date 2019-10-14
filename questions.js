@@ -464,7 +464,7 @@ const selectAnswer = function(selection) {
         answerDiv.setAttribute("data-selectionconfirmed", "true");
         selectedAnswer.setAttribute("data-selected", "true");
         const correct = selectedAnswer.getAttribute("data-correct");
-        if (correct) {points += questions[currentQuestion].points};
+        if (correct == "true") {points += questions[currentQuestion].points};
         pointDiv.innerHTML = points;
         confirmedAnswer = true;
         return;
