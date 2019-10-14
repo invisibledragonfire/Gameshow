@@ -1,4 +1,6 @@
 const questions = [
+    {content:"start"},
+    {content:"prizes"},
     {
         prompt: "Was sind Kleidungsstücke?",
         answers: [
@@ -177,6 +179,7 @@ const questions = [
         ],
         points: 10
     },*/
+    {content:"adbreak"},
     {
         prompt: "Welcher berühmte Künstler hat dieses Bild gemalt?",
         answers: [
@@ -334,6 +337,7 @@ const questions = [
         ],
         points: 20
     },
+    {content:"adbreak"},
     {
         prompt: "Zwei Dioptrien sind 50cm. Wieviel cm sind 4 Dioptrien?",
         answers: [
@@ -443,13 +447,17 @@ const questions = [
             }
         ],
         points: 50
-    }
+    },
+    {content:"prizes"}
 ];
 let points = 0;
-let currentQuestion = 0;
+let currentContent = 0;
 let selectedAnswer = null;
 let confirmedAnswer = false;
 let confirmedAnswerShown = false;
+
+let currentContentDiv = document.getElementById("start");
+let contentIsQuestion = false;
 
 const promptDiv = document.getElementById("prompt");
 const answerDiv = document.getElementById("answers");
@@ -464,7 +472,7 @@ const selectAnswer = function(selection) {
         answerDiv.setAttribute("data-selectionconfirmed", "true");
         selectedAnswer.setAttribute("data-selected", "true");
         const correct = selectedAnswer.getAttribute("data-correct");
-        if (correct == "true") {points += questions[currentQuestion].points};
+        if (correct == "true") {points += questions[currentContent].points};
         pointDiv.innerHTML = points;
         confirmedAnswer = true;
         return;
@@ -476,8 +484,28 @@ const selectAnswer = function(selection) {
     selectedAnswer.removeAttribute("data-notselected")
 }
 
-const setQuestion = function(id) {
+const changeContent = function (contentName) {
+    let content = document.getElementById(contentName); 
+    content.classList.remove("hide");
+    currentContentDiv.classList.add("hide");
+    currentContentDiv = content;
+} 
+
+const setContent = function (id) {
     const question = questions[id];
+    if (!question.content) {
+        if (!contentIsQuestion) {
+            changeContent("questions");
+            contentIsQuestion = true;
+        }
+        setQuestion(question);
+    } else {
+        changeContent(question.content);
+        contentIsQuestion = false;
+    }
+}
+
+const setQuestion = function(question) {
     promptDiv.innerHTML = question.prompt;
     newPointsDiv.innerHTML = question.points;
     answerDiv.innerHTML = "";
@@ -492,7 +520,7 @@ const setQuestion = function(id) {
     })
     confirmedAnswer = false;
 }
-setQuestion(currentQuestion);
+//setQuestion(currentContent);
 
 const nextQuestion = function() {
     if (!confirmedAnswer) return;
@@ -500,10 +528,16 @@ const nextQuestion = function() {
         confirmedAnswerShown = true;
         return;
     }
-    currentQuestion++;
-    setQuestion(currentQuestion);
+    currentContent++;
+    setContent(currentContent);
     selectedAnswer = null;
     confirmedAnswerShown = false;
 }
 
-document.addEventListener("click", nextQuestion);
+const nextContent = function() {
+    if (contentIsQuestion) return nextQuestion();
+    currentContent++;
+    setContent(currentContent);
+}
+
+document.addEventListener("click", nextContent);
