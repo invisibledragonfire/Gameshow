@@ -2,7 +2,7 @@ const questions = [
     {content:"start"},
     {content:"prizes"},
     {
-        image: "clothes.jpg",
+        image: "wetterhahn.jpg",
         prompt: "Was sind Kleidungsstücke?",
         answers: [
             {
@@ -328,6 +328,7 @@ const questions = [
         points: 20
     },
     {
+        image: "blau.jpg",
         prompt: "Welche dieser Farben ist Blau?",
         colorful: true,
         answers: [
@@ -567,16 +568,16 @@ const nextContent = function() {
 let addImage = function(filename) {
     imgDiv.innerHTML = "";
 
-    let filetype = filename.split('.')[1];
 
     if(filename) {
+        let filetype = filename.split('.')[1];
         let image = document.createElement('div');
 
-        if(filetype === "jpg") {
-            image.innerHTML = `<img src="images/${filename}"/>`;
+        if(filetype === "jpg" || filetype === "png") {
+            image.innerHTML = `<img src="images/${filename}" height="400"/>`;
         }
         else {
-            image.innerHTML = `<video src="images/${filename}"/>`;
+            image.innerHTML = `<video src="../${filename}" controls height="400"></video>`;
         }
 
         imgDiv.appendChild(image);
