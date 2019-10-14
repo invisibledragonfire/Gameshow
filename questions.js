@@ -2,6 +2,7 @@ const questions = [
     {content:"start"},
     {content:"prizes"},
     {
+        image: "clothes.jpg",
         prompt: "Was sind Kleidungsstücke?",
         answers: [
             {
@@ -24,6 +25,7 @@ const questions = [
         points: 10
     },
     {
+        image: "kopa.jpg",
         prompt: "Wer ist die Person auf dem Bild?",
         answers: [
             {
@@ -47,6 +49,7 @@ const questions = [
     },
     // Secondary for second birthday
     /*{
+        image: "mutti.jpg",
         prompt: "Wer ist die Person auf dem Bild?",
         answers: [
             {
@@ -69,6 +72,7 @@ const questions = [
         points: 10
     },*/
     {
+        image: "Main Video.mp4",
         prompt: "Mit wie vielen Händen wird das Stück gespielt?",
         answers: [
             {
@@ -91,6 +95,7 @@ const questions = [
         points: 10
     },// ei, frei, drei, vier
     {
+        image: "kunstwerkstatt.jpg",
         prompt: "Wer hat die KunstWerkstätten in Greifswald gegründet?",
         answers: [
             {
@@ -114,6 +119,7 @@ const questions = [
     },
     // Secondary for second birthday
     /*{
+        image: "muttishaus.jpg",
         prompt: "Welcher berühmte Baumeister hat das Haus in der Liebermannstr. 10 errichtet?",
         answers: [
             {
@@ -136,6 +142,7 @@ const questions = [
         points: 10
     },*/
     {
+        image: "rauschhase.jpg",
         prompt: "Der Hase im Rausch - Wer ist der Gastgeber?",
         answers: [
             {
@@ -158,6 +165,7 @@ const questions = [
         points: 10
     },
     /*{
+        image: "rauschhase.jpg",
         prompt: "Der Hase im Rausch - Wer ist der Gastgeber?",
         answers: [
             {
@@ -181,6 +189,7 @@ const questions = [
     },*/
     {content:"adbreak"},
     {
+        image: "opasbild.jpg",
         prompt: "Welcher berühmte Künstler hat dieses Bild gemalt?",
         answers: [
             {
@@ -204,6 +213,7 @@ const questions = [
     },
     // Secondary for second birthday
     /*{
+        image: "fetterfrieder.jpg",
         prompt: "Was sollte die Oma mit Frieder machen?",
         answers: [
             {
@@ -226,6 +236,7 @@ const questions = [
         points: 20
     },*/
     {
+        image: "regenvideo.mp4",
         prompt: "Wer hat dieses Video hergestellt?",
         answers: [
             {
@@ -248,6 +259,7 @@ const questions = [
         points: 20
     },
     {
+        image: "abstand.jpg",
         prompt: "Wie weit ist es von Greifswald nach Grimstad (Norwegen)?",
         answers: [
             {
@@ -292,6 +304,7 @@ const questions = [
         points: 20
     },*/
     {
+        image: "tanzvideo.mp4",
         prompt: "Welcher Tanz ist das?",
         // Samba, Rumba, Tango, Walzer
         answers: [
@@ -339,6 +352,7 @@ const questions = [
     },
     {content:"adbreak"},
     {
+        image: "brille.jpg",
         prompt: "Zwei Dioptrien sind 50cm. Wieviel cm sind 4 Dioptrien?",
         answers: [
             {
@@ -361,6 +375,7 @@ const questions = [
         points: 50
     },
     {
+        image: "fragen.jpg",
         prompt: "Wie viele Fragen haben sie heute schon in dieser Show beantwortet? (add true)",
         answers: [
             {
@@ -383,6 +398,7 @@ const questions = [
         points: 50
     },
     {
+        image: "baby.jpg",
         prompt: "Wer ist das?",
         answers: [
             {
@@ -405,6 +421,7 @@ const questions = [
         points: 50
     },
     {
+        image: "lichtjahr.jpg",
         prompt: "Was misst man in Teelöffeln pro Lichtjahr?",
         answers: [
             {
@@ -427,6 +444,7 @@ const questions = [
         points: 50
     },
     {
+        image: "bonus.jpg",
         prompt: "Was ist ein Bonus?",
         answers: [
             {
@@ -463,6 +481,7 @@ const promptDiv = document.getElementById("prompt");
 const answerDiv = document.getElementById("answers");
 const pointDiv = document.getElementById("points");
 const newPointsDiv = document.getElementById("newPoints");
+const imgDiv = document.getElementById("img");
 
 pointDiv.innerHTML = points;
 
@@ -472,7 +491,9 @@ const selectAnswer = function(selection) {
         answerDiv.setAttribute("data-selectionconfirmed", "true");
         selectedAnswer.setAttribute("data-selected", "true");
         const correct = selectedAnswer.getAttribute("data-correct");
-        if (correct == "true") {points += questions[currentContent].points};
+        if (correct == "true") {
+            points += questions[currentContent].points
+        }
         pointDiv.innerHTML = points;
         confirmedAnswer = true;
         return;
@@ -480,16 +501,16 @@ const selectAnswer = function(selection) {
     selectedAnswer = selection.srcElement;
     answerDiv.childNodes.forEach(div =>{
         div.setAttribute("data-notselected", "true");
-    })
+    });
     selectedAnswer.removeAttribute("data-notselected")
-}
+};
 
 const changeContent = function (contentName) {
     let content = document.getElementById(contentName); 
     content.classList.remove("hide");
     currentContentDiv.classList.add("hide");
     currentContentDiv = content;
-} 
+};
 
 const setContent = function (id) {
     const question = questions[id];
@@ -503,13 +524,16 @@ const setContent = function (id) {
         changeContent(question.content);
         contentIsQuestion = false;
     }
-}
+};
 
 const setQuestion = function(question) {
+
+    addImage(question.image);
+
     promptDiv.innerHTML = question.prompt;
     newPointsDiv.innerHTML = question.points;
     answerDiv.innerHTML = "";
-    answerDiv.removeAttribute("data-selectionconfirmed")
+    answerDiv.removeAttribute("data-selectionconfirmed");
     question.answers.forEach(answer => {
         const newAnswer = document.createElement("div");
         newAnswer.innerHTML = answer.text;
@@ -517,9 +541,9 @@ const setQuestion = function(question) {
         newAnswer.setAttribute("data-correct", answer.correct);
         newAnswer.addEventListener("click", selectAnswer);
         answerDiv.appendChild(newAnswer);
-    })
+    });
     confirmedAnswer = false;
-}
+};
 //setQuestion(currentContent);
 
 const nextQuestion = function() {
@@ -532,12 +556,31 @@ const nextQuestion = function() {
     setContent(currentContent);
     selectedAnswer = null;
     confirmedAnswerShown = false;
-}
+};
 
 const nextContent = function() {
     if (contentIsQuestion) return nextQuestion();
     currentContent++;
     setContent(currentContent);
-}
+};
+
+let addImage = function(filename) {
+    imgDiv.innerHTML = "";
+
+    let filetype = filename.split('.')[1];
+
+    if(filename) {
+        let image = document.createElement('div');
+
+        if(filetype === "jpg") {
+            image.innerHTML = `<img src="images/${filename}"/>`;
+        }
+        else {
+            image.innerHTML = `<video src="images/${filename}"/>`;
+        }
+
+        imgDiv.appendChild(image);
+    }
+};
 
 document.addEventListener("click", nextContent);
