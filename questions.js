@@ -189,6 +189,30 @@ const questions = [
     },*/
     {content:"adbreak"},
     {
+        image: "maerchen.jpg",
+        prompt: "Was sagt Aschenputtel?",
+        answers: [
+            {
+                correct: false,
+                text: "Ich bin so schön."
+            },
+            {
+                correct: true,
+                text: "Ok."
+            },
+            {
+                correct: false,
+                text: "Ich bin die gute Fee."
+            },
+            {
+                correct: false,
+                text: "Ich bin das Aschenbrödel."
+            }
+        ],
+        points: "Schokolade",
+        dontAddPoints: true
+    },
+    {
         image: "opasbild.jpg",
         prompt: "Welcher berühmte Künstler hat dieses Bild gemalt?",
         answers: [
@@ -492,7 +516,7 @@ const selectAnswer = function(selection) {
         answerDiv.setAttribute("data-selectionconfirmed", "true");
         selectedAnswer.setAttribute("data-selected", "true");
         const correct = selectedAnswer.getAttribute("data-correct");
-        if (correct == "true") {
+        if (correct == "true" && !questions[currentContent].dontAddPoints) {
             points += questions[currentContent].points
         }
         pointDiv.innerHTML = points;
