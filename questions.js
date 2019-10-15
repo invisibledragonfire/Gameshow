@@ -497,7 +497,6 @@ const totalPoints = 500;
 let currentContent = 0;
 let selectedAnswer = null;
 let confirmedAnswer = false;
-let confirmedAnswerShown = false;
 
 let currentContentDiv = document.getElementById("start");
 let contentIsQuestion = false;
@@ -585,14 +584,9 @@ const setQuestion = function(question) {
 
 const nextQuestion = function(selection) {
     if (!confirmedAnswer) return selectAnswer(selection);
-    if (!confirmedAnswerShown) {
-        confirmedAnswerShown = true;
-        return;
-    }
     currentContent++;
     setContent(currentContent);
     selectedAnswer = null;
-    confirmedAnswerShown = false;
 };
 
 const nextContent = function(selection) {
