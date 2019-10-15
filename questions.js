@@ -571,16 +571,14 @@ let addImage = function(filename) {
 
     if(filename) {
         let filetype = filename.split('.')[1];
-        let image = document.createElement('div');
 
         if(filetype === "jpg" || filetype === "png") {
-            image.innerHTML = `<img src="images/${filename}" height="400"/>`;
+            imgDiv.innerHTML = `<img src="images/${filename}" />`;
         }
         else {
-            image.innerHTML = `<video src="../${filename}" controls height="400"></video>`;
+            imgDiv.innerHTML = `<video src="../${filename}" controls ></video>`;
         }
 
-        imgDiv.appendChild(image);
     }
 };
 
