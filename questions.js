@@ -81,15 +81,15 @@ const questions = [
             },
             {
                 correct: false,
-                text: "Dreihändig"
-            },
-            {
-                correct: true,
                 text: "Zweihändig"
             },
             {
                 correct: false,
-                text: "Eihändig"
+                text: "Dreihändig"
+            },
+            {
+                correct: true,
+                text: "Vierhändig"
             }
         ],
         points: 10
@@ -334,18 +334,18 @@ const questions = [
         answers: [
             {
                 correct: false,
-                text: "Nutella"
-            },
-            {
-                correct: false,
-                text: "Nudossi"
-            },
-            {
-                correct: false,
-                text: "Nugatti"
+                text: "Salsa"
             },
             {
                 correct: true,
+                text: "Chacha(cha)"
+            },
+            {
+                correct: false,
+                text: "Walza"
+            },
+            {
+                correct: false,
                 text: "Samba"
             }
         ],
