@@ -515,7 +515,12 @@ const selectAnswer = function(selection) {
     if (confirmedAnswer) return;
     const removed = selection.srcElement.getAttribute("removed") === "true";
     if (removed) return;
-    console.log("ok");
+    if (!answerDiv.contains(selection.srcElement)) {
+        answerDiv.childNodes.forEach(div =>{
+            div.removeAttribute("data-notselected")
+        });
+        return;
+    }
     if (selectedAnswer === selection.srcElement) {
         answerDiv.setAttribute("data-selectionconfirmed", "true");
         selectedAnswer.setAttribute("data-selected", "true");
@@ -571,15 +576,15 @@ const setQuestion = function(question) {
         newAnswer.innerHTML = answer.text;
         question.colorful && newAnswer.classList.add("colorful");
         newAnswer.setAttribute("data-correct", answer.correct);
-        newAnswer.addEventListener("click", selectAnswer);
+        //newAnswer.addEventListener("click", selectAnswer);
         answerDiv.appendChild(newAnswer);
     });
     confirmedAnswer = false;
 };
 //setQuestion(currentContent);
 
-const nextQuestion = function() {
-    if (!confirmedAnswer) return;
+const nextQuestion = function(selection) {
+    if (!confirmedAnswer) return selectAnswer(selection);
     if (!confirmedAnswerShown) {
         confirmedAnswerShown = true;
         return;
@@ -590,8 +595,8 @@ const nextQuestion = function() {
     confirmedAnswerShown = false;
 };
 
-const nextContent = function() {
-    if (contentIsQuestion) return nextQuestion();
+const nextContent = function(selection) {
+    if (contentIsQuestion) return nextQuestion(selection);
     currentContent++;
     setContent(currentContent);
 };
