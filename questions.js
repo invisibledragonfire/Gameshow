@@ -519,6 +519,7 @@ const selectAnswer = function(selection) {
         answerDiv.childNodes.forEach(div =>{
             div.removeAttribute("data-notselected")
         });
+        selectedAnswer = null;
         return;
     }
     if (selectedAnswer === selection.srcElement) {
@@ -634,7 +635,7 @@ const selectJoker = function (selection) {
                 wronganswers.push(answer);
             }
         }
-        for (let i = 0; i<2; i++) {
+        for (let i = 0; i<answerDiv.children.length/2; i++) {
             if (wronganswers.length<=i) break;
             const random = Math.floor(Math.random()*wronganswers.length);
             toRemove = wronganswers[random];
