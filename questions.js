@@ -507,7 +507,8 @@ const answerDiv = document.getElementById("answers");
 const pointDiv = document.getElementById("points");
 const newPointsDiv = document.getElementById("newPoints");
 const imgDiv = document.getElementById("img");
-const jokers = document.getElementById("jokers").children;
+const jokerDiv = document.getElementById("jokers");
+const jokers = jokerDiv.children;
 
 pointDiv.innerHTML = points;
 
@@ -595,6 +596,7 @@ const nextQuestion = function(selection) {
 };
 
 const nextContent = function(selection) {
+    if (jokerDiv.contains(selection.srcElement)) return selectJoker(selection);
     if (contentIsQuestion) return nextQuestion(selection);
     currentContent++;
     setContent(currentContent);
@@ -639,7 +641,7 @@ const selectJoker = function (selection) {
             }
         }
         for (let i = 0; i<2; i++) {
-            if (wronganswers.length<i) return;
+            if (wronganswers.length<=i) break;
             const random = Math.floor(Math.random()*wronganswers.length);
             toRemove = wronganswers[random];
             toRemove.setAttribute("removed", true);
@@ -652,10 +654,6 @@ const selectJoker = function (selection) {
     }
     joker.classList.add("used");
     usedJokers++;
-}
-
-for (joker of jokers) {
-    joker.addEventListener("click", selectJoker);
 }
 
 document.addEventListener("click", nextContent);
