@@ -507,16 +507,20 @@ const answerDiv = document.getElementById("answers");
 const pointDiv = document.getElementById("points");
 const newPointsDiv = document.getElementById("newPoints");
 const imgDiv = document.getElementById("img");
+const jokers = document.getElementById("jokers").children;
 
 pointDiv.innerHTML = points;
 
 const selectAnswer = function(selection) {
     if (confirmedAnswer) return;
+    const removed = selection.srcElement.getAttribute("removed") === "true";
+    if (removed) return;
+    console.log("ok");
     if (selectedAnswer === selection.srcElement) {
         answerDiv.setAttribute("data-selectionconfirmed", "true");
         selectedAnswer.setAttribute("data-selected", "true");
-        const correct = selectedAnswer.getAttribute("data-correct");
-        if (correct == "true" && !questions[currentContent].dontAddPoints) {
+        const correct = selectedAnswer.getAttribute("data-correct") === "true";
+        if (correct && !questions[currentContent].dontAddPoints) {
             points += questions[currentContent].points
         }
         pointDiv.innerHTML = points;
@@ -608,5 +612,47 @@ let addImage = function(filename) {
 
     }
 };
+
+let reviveJoker = false;
+let usedJokers = 0;
+const selectJoker = function (selection) {
+    joker = selection.srcElement;
+    if (reviveJoker) {
+        if(joker.classList.contains("used")) {
+            joker.classList.remove("used");
+            reviveJoker = false;
+            usedJokers--;
+        };
+        return;
+    }
+    if(joker.classList.contains("used")) return;
+    console.log(joker);
+    if (joker.id =="50/50") {
+        const wronganswers = [];
+        for (answer of answerDiv.children) {
+            const correct = joker.getAttribute("data-correct") === "true";
+            if (!correct) {
+                wronganswers.push(answer);
+            }
+        }
+        for (let i = 0; i<2; i++) {
+            if (wronganswers.length<i) return;
+            const random = Math.floor(Math.random()*wronganswers.length);
+            toRemove = wronganswers[random];
+            toRemove.setAttribute("removed", true);
+            wronganswers.splice(random,1);
+        }
+    }
+    if (joker.id =="zombie") {
+        if(!usedJokers) return;
+        reviveJoker = true;
+    }
+    joker.classList.add("used");
+    usedJokers++;
+}
+
+for (joker of jokers) {
+    joker.addEventListener("click", selectJoker);
+}
 
 document.addEventListener("click", nextContent);

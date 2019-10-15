@@ -95,6 +95,11 @@ html, body {
     padding: 5px;
 }
 
+#jokers .used {
+    border: solid 2px lightgray;
+    color: lightgray;
+}
+
 #answers {
     display: grid;
     grid-template-columns: auto auto;
@@ -127,10 +132,16 @@ html, body {
     background: lightgreen;
 } 
 
+#answers [removed] {
+    border-color: lightgray !important;
+    background: white !important;
+    color: lightgray !important;
+}
+
 #answers [data-notselected] {
     border-color: gray;
     background: lightgray;
-} 
+}
 
 #answers[data-selectionconfirmed] [data-correct=true]{
     box-shadow: 0 0 30px 3px green;
