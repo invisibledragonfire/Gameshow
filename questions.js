@@ -464,12 +464,12 @@ const questions = [
                 correct: true,
                 text: "Ein Asteroid mit der Nummer 10028"
             }
-        ],
-        points: 50
+        ]
     },
     {content:"prizes"}
 ];
 let points = 0;
+const totalPoints = 500;
 let currentContent = 0;
 let selectedAnswer = null;
 let confirmedAnswer = false;
@@ -532,6 +532,9 @@ const setQuestion = function(question) {
     addImage(question.image);
 
     promptDiv.innerHTML = question.prompt;
+    if (!question.points){
+        question.points = totalPoints - points;
+    }
     newPointsDiv.innerHTML = question.points;
     answerDiv.innerHTML = "";
     answerDiv.removeAttribute("data-selectionconfirmed");
