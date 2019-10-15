@@ -4,18 +4,36 @@ html, body {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
-#questions.hide {
-    display: none;
-}
-
-#questions {
+#questions, #start, #adbreak, #prizes {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+#questions {
+    flex-direction: row;
+}
+
+#prizes div {
+    border: gray solid 3px;
+    background: lightgray;
+    border-radius: 20px;
+    margin-top: 5px;
+    padding: 20px;
+}
+
+#prizes div :first-child {
+    padding-right: 20px;
+}
+
+#prizes div :last-child {
+    padding: 20px 0 20px 20px;
+    border-left: gray solid 3px;
 }
 
 #subcontainer {
