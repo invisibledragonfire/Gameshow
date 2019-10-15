@@ -80,6 +80,21 @@ html, body {
    
 }
 
+#points::before {
+    content: "Punkte: ";
+}
+
+#jokers {
+    display: flex;
+}
+
+#jokers div {
+    border: solid 2px;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
 #answers {
     display: grid;
     grid-template-columns: auto auto;
