@@ -576,7 +576,6 @@ const setQuestion = function(question) {
         newAnswer.innerHTML = answer.text;
         question.colorful && newAnswer.classList.add("colorful");
         newAnswer.setAttribute("data-correct", answer.correct);
-        //newAnswer.addEventListener("click", selectAnswer);
         answerDiv.appendChild(newAnswer);
     });
     confirmedAnswer = false;
@@ -631,11 +630,10 @@ const selectJoker = function (selection) {
         return;
     }
     if(joker.classList.contains("used")) return;
-    console.log(joker);
     if (joker.id =="50/50") {
         const wronganswers = [];
         for (answer of answerDiv.children) {
-            const correct = joker.getAttribute("data-correct") === "true";
+            const correct = answer.getAttribute("data-correct") === "true";
             if (!correct) {
                 wronganswers.push(answer);
             }
