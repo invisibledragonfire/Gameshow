@@ -22,7 +22,7 @@ const questions = [
                 text: "Westen", 
             }
         ],
-        points: 10
+        points: 5
     },
     {
         image: "kopa.jpg",
@@ -92,7 +92,7 @@ const questions = [
                 text: "Vierhändig"
             }
         ],
-        points: 10
+        points: 15
     },// ei, frei, drei, vier
     {
         image: "kunstwerkstatt.jpg",
@@ -115,7 +115,7 @@ const questions = [
                 text: "Caspar David Friedrich"
             }
         ],
-        points: 10
+        points: 20
     },
     // Secondary for second birthday
     /*{
@@ -162,7 +162,7 @@ const questions = [
                 text: "Manfred"
             }
         ],
-        points: 10
+        points: 25
     },
     /*{
         image: "rauschhase.jpg",
@@ -222,7 +222,7 @@ const questions = [
             },
             {
                 correct: false,
-                text: "Mozart"
+                text: "Franz Schubert"
             },
             {
                 correct: true,
@@ -230,10 +230,10 @@ const questions = [
             },
             {
                 correct: false,
-                text: "Picasso"
+                text: "Pablo Picasso"
             }
         ],
-        points: 20
+        points: 30
     },
     // Secondary for second birthday
     /*{
@@ -280,7 +280,7 @@ const questions = [
                 text: "Hollywood"
             }
         ],
-        points: 20
+        points: 35
     },
     {
         image: "abstand.jpg",
@@ -303,7 +303,7 @@ const questions = [
                 text: "Zu weit"
             }
         ],
-        points: 20
+        points: 40
     },
     /*{
         prompt: "Wie weit ist es von Cottbus nach Grimstad (Norwegen)?",
@@ -349,7 +349,7 @@ const questions = [
                 text: "Samba"
             }
         ],
-        points: 20
+        points: 45
     },
     {
         image: "blau.jpg",
@@ -373,7 +373,7 @@ const questions = [
                 text: "Gelb"
             }
         ],
-        points: 20
+        points: 50
     },
     {content:"adbreak"},
     {
@@ -397,7 +397,7 @@ const questions = [
                 text: "So viele Zentimeter gibt's gar nicht",
             }
         ],
-        points: 50
+        points: 55
     },
     {
         image: "fragen.jpg",
@@ -420,7 +420,7 @@ const questions = [
                 text: "Zu viele"
             }
         ],
-        points: 50
+        points: 60
     },
     {
         image: "baby.jpg",
@@ -443,7 +443,7 @@ const questions = [
                 text: "Lisanne"
             }
         ],
-        points: 50
+        points: 65
     },
     {
         image: "lichtjahr.jpg",
@@ -466,8 +466,9 @@ const questions = [
                 text: "Fläche"
             }
         ],
-        points: 50
+        points: 70
     },
+    {content:"prizes"},
     {
         image: "bonus.jpg",
         prompt: "Was ist ein Bonus?",
@@ -490,7 +491,6 @@ const questions = [
             }
         ]
     },
-    {content:"prizes"},
     {content:"victory"}
 ];
 let points = 0;
