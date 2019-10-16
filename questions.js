@@ -502,6 +502,8 @@ let confirmedAnswer = false;
 let currentContentDiv = document.getElementById("start");
 let contentIsQuestion = false;
 
+const jingle = document.getElementById("jingle");
+
 const promptDiv = document.getElementById("prompt");
 const answerDiv = document.getElementById("answers");
 const pointDiv = document.getElementById("points");
@@ -563,6 +565,7 @@ const setContent = function (id) {
 };
 
 const setQuestion = function(question) {
+    jingle.play();
 
     addImage(question.image);
 
