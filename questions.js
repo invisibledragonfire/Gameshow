@@ -1,6 +1,6 @@
 const questions = [
     {content:"start"},
-    {content:"prizes"},
+    {content:"info"},
     {
         image: "wetterhahn.jpg",
         prompt: "Was sind Kleidungsstücke?",
@@ -490,7 +490,8 @@ const questions = [
             }
         ]
     },
-    {content:"prizes"}
+    {content:"prizes"},
+    {content:"victory"}
 ];
 let points = 0;
 const totalPoints = 500;

@@ -73,7 +73,7 @@ h1 {
     margin: auto;
 }
 
-#prizes {
+#prizes,#victory {
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: center;
@@ -83,19 +83,81 @@ h1 {
     text-align: center;
 }
 
-#prizes div {
+#prizes div, #prizelist div {
     border: solid 3px;
     background: lightgray;
     margin-right: -3px;
     padding: 20px;
 }
 
-#prizes :nth-child(3n+1) {
+#prizes :nth-child(3n+1), #prizelist :nth-child(3n+1){
     border-radius: 20px 0 0 20px;
 }
 
-#prizes :nth-child(3n+0) {
+#prizes :nth-child(3n+0), #prizelist :nth-child(3n+0) {
     border-radius: 0 20px 20px 0;
+}
+
+
+#prizelist {
+    margin-top:3em;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    height: 80%;
+    width: 70%;
+    align-content: center;
+    grid-row-gap: 10px;
+    text-align: center;
+}
+
+#victory div {
+    border: solid 3px;
+    background: lightgray;
+    margin-right: -3px;
+    padding: 20px;
+}
+
+#victory :nth-child(3n+1) {
+    border-radius: 20px 0 0 20px;
+}
+
+#victory :nth-child(3n+0) {
+    border-radius: 0 20px 20px 0;
+}
+#victory :nth-child(1) {
+    background-image: linear-gradient(to right, violet, indigo);
+    border: 3px solid green;
+    color: white;
+}
+#victory :nth-child(2) {
+    background-image: linear-gradient(to right, indigo, blue, green, chartreuse);
+    border: 3px solid green;
+    color: white;
+}
+#victory :nth-child(3) {
+    background-image: linear-gradient(to right, chartreuse, yellow, orange, red);
+    border: 3px solid green;
+    color: white;
+}
+
+
+#jokerlist {
+    position:absolute;
+    right:5em;
+    top:35%;
+    width: 30%;
+    display:grid;
+    justify-content: center;
+    grid-row-gap: 10px;
+    text-align: center;
+}
+
+#jokerlist div {
+    border: solid 2px;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
 }
 
 #container {
