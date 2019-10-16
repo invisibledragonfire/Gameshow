@@ -125,17 +125,17 @@ h1 {
 #victory :nth-child(3n+0) {
     border-radius: 0 20px 20px 0;
 }
-#victory :nth-child(1) {
+#victory :nth-child(1), #prizes .victory1 {
     background-image: linear-gradient(to right, violet, indigo);
     border: 3px solid green;
     color: white;
 }
-#victory :nth-child(2) {
+#victory :nth-child(2), #prizes .victory2 {
     background-image: linear-gradient(to right, indigo, blue, green, chartreuse);
     border: 3px solid green;
     color: white;
 }
-#victory :nth-child(3) {
+#victory :nth-child(3), #prizes .victory3 {
     background-image: linear-gradient(to right, chartreuse, yellow, orange, red);
     border: 3px solid green;
     color: white;

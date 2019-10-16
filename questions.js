@@ -468,7 +468,7 @@ const questions = [
         ],
         points: 70
     },
-    {content:"prizes"},
+    {content:"prizes", updatePrizes: true},
     {
         image: "bonus.jpg",
         prompt: "Was ist ein Bonus?",
@@ -559,6 +559,13 @@ const setContent = function (id) {
         }
         setQuestion(question);
     } else {
+		if (question.updatePrizes) {
+			elementID= "num"+Math.floor(points/100)+"00";
+			numDiv = document.getElementById(elementID);
+			numDiv.classList.add("victory1");
+			numDiv.nextSibling.classList.add("victory2");
+			numDiv.nextSibling.nextSibling.classList.add("victory3");
+		}
         changeContent(question.content);
         contentIsQuestion = false;
     }
