@@ -260,7 +260,7 @@ const questions = [
         points: 20
     },*/
     {
-        image: "regenvideo.mp4",
+        image: "regenlied.mp4",
         prompt: "Wer hat dieses Video hergestellt?",
         answers: [
             {
@@ -401,11 +401,11 @@ const questions = [
     },
     {
         image: "fragen.jpg",
-        prompt: "Wie viele Fragen haben sie heute schon in dieser Show beantwortet? (add true)",
+        prompt: "Wie viele Fragen haben sie heute schon in dieser Show beantwortet?",
         answers: [
             {
                 correct: true,
-                text: "13"
+                text: "12"
             },
             {
                 correct: false,
