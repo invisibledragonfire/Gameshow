@@ -1,7 +1,8 @@
 html, body {
     height: 100%;
     user-select: none;
-    font-size: 20px;
+    font-size: 4vh;
+    margin: 0;
 }
 
 .hide {
@@ -9,7 +10,7 @@ html, body {
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 5em;
 }
 
 #questions, #start, #adbreak {
@@ -22,22 +23,28 @@ h1 {
 
 #start {
     justify-content: start;
-    padding-top: 10%;
+    padding-top: 2%;
 }
 
-#start h1 {
+#start h1, #adbreak h1 {
     background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
+#adbreak {
+    background: radial-gradient(violet, indigo, blue, green, yellow, orange, red)
+}
+
 @keyframes drop {
-    from {top: -500px}
+    from {top: -100%}
     to {top: 0}
 }
 
 #company, #presents, #title {
+    margin-top: .5em;
+    margin-bottom: .5em;
     position: relative;
     animation-name: drop;
     animation-duration: 1s;
@@ -55,6 +62,8 @@ h1 {
 
 #questions {
     flex-direction: row;
+    width: 90%;
+    margin: auto;
 }
 
 #prizes {
@@ -83,7 +92,7 @@ h1 {
 }
 
 #container {
-    height:400px;
+    height:80%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -110,8 +119,13 @@ h1 {
     border-radius: 20px 0 0 20px;
 }
 
+#img{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 #img img, #img video {
-    height: 400px;
+    height: 60%;
     object-fit: contain;
     border: solid 3px;
     border-radius: 20px;
