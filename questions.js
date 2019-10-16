@@ -629,18 +629,29 @@ const selectJoker = function (selection) {
     if(joker.classList.contains("used")) return;
     if (joker.id =="50/50") {
         const wronganswers = [];
+        const correctAnswers = [];
+        let remainingAnswers = 0;
         for (answer of answerDiv.children) {
+            const removed = answer.getAttribute("removed") === "true";
+            if (removed) continue;
+            remainingAnswers++;
             const correct = answer.getAttribute("data-correct") === "true";
             if (!correct) {
                 wronganswers.push(answer);
+            } else {
+                correctAnswers.push(answer);
             }
         }
-        for (let i = 0; i<answerDiv.children.length/2; i++) {
-            if (wronganswers.length<=i) break;
-            const random = Math.floor(Math.random()*wronganswers.length);
-            toRemove = wronganswers[random];
+        let answersToChooseBetween = wronganswers;
+        if (wronganswers.length === 0) {
+            answersToChooseBetween = correctAnswers;
+        }
+        for (let i = 0; i<remainingAnswers/2; i++) {
+            if (answersToChooseBetween.length === 0) break;
+            const random = Math.floor(Math.random()*answersToChooseBetween.length);
+            toRemove = answersToChooseBetween[random];
             toRemove.setAttribute("removed", true);
-            wronganswers.splice(random,1);
+            answersToChooseBetween.splice(random,1);
         }
     }
     if (joker.id =="zombie") {
