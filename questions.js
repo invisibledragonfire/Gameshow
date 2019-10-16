@@ -198,7 +198,7 @@ const questions = [
             },
             {
                 correct: true,
-                text: "Ok."
+                text: "OK."
             },
             {
                 correct: false,
@@ -401,19 +401,19 @@ const questions = [
     },
     {
         image: "fragen.jpg",
-        prompt: "Wie viele Fragen haben sie heute schon in dieser Show beantwortet?",
+        prompt: "Wie viele Quizfragen haben sie heute schon in dieser Show beantwortet?",
         answers: [
+            {
+                correct: false,
+                text: "10"
+            },
             {
                 correct: true,
                 text: "12"
             },
             {
                 correct: false,
-                text: "15"
-            },
-            {
-                correct: false,
-                text: "20"
+                text: "14"
             },
             {
                 correct: true,
