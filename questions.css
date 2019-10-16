@@ -1,10 +1,15 @@
 html, body {
     height: 100%;
     user-select: none;
+    font-size: 20px;
 }
 
 .hide {
     display: none !important;
+}
+
+h1 {
+    font-size: 4em;
 }
 
 #questions, #start, #adbreak {
@@ -13,6 +18,39 @@ html, body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+#start {
+    justify-content: start;
+    padding-top: 10%;
+}
+
+#start h1 {
+    background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes drop {
+    from {top: -500px}
+    to {top: 0}
+}
+
+#company, #presents, #title {
+    position: relative;
+    animation-name: drop;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+}
+
+#presents {
+    animation-delay: 1.5s;
+}
+
+#title {
+    animation-delay: 3s;
 }
 
 #questions {
@@ -49,6 +87,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    align-items: center;
 }
 
 #subcontainer {
@@ -78,6 +117,14 @@ html, body {
     border-radius: 20px;
     margin-right: 20px;
    
+}
+
+#points {
+    border: solid 3px;
+    border-radius: 50%;
+    padding: 20px; 
+    border-color: gray;
+    background: lightgray;
 }
 
 #points::before {
