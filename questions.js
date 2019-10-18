@@ -1,4 +1,5 @@
 const questions = [
+    {content:"prestart"},
     {content:"start"},
     {content:"info"},
     {
@@ -499,7 +500,7 @@ let currentContent = 0;
 let selectedAnswer = null;
 let confirmedAnswer = false;
 
-let currentContentDiv = document.getElementById("start");
+let currentContentDiv = document.getElementById(questions[0].content);
 let contentIsQuestion = false;
 
 const jingle = document.getElementById("jingle");
