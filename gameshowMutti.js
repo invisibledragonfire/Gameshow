@@ -387,6 +387,8 @@ let currentContentDiv = document.getElementById(questions[0].content);
 let contentIsQuestion = false;
 
 const jingle = document.getElementById("jingle");
+const succcessding = document.getElementById("succcessding");
+const defeatding = document.getElementById("defeatding");
 
 const promptDiv = document.getElementById("prompt");
 const answerDiv = document.getElementById("answers");
@@ -414,7 +416,11 @@ const selectAnswer = function(selection) {
         selectedAnswer.setAttribute("data-selected", "true");
         const correct = selectedAnswer.getAttribute("data-correct") === "true";
         if (correct && !questions[currentContent].dontAddPoints) {
-            points += questions[currentContent].points
+            points += questions[currentContent].points;
+            succcessding.play();
+        }
+        else {
+            defeatding.play();
         }
         pointDiv.innerHTML = points;
         confirmedAnswer = true;
