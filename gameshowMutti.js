@@ -26,7 +26,7 @@ const questions = [
         points: 5
     },
     {
-        image: "mutti.jpg",
+        image: "oma3.jpg",
         prompt: "Wer ist die Person auf dem Bild?",
         answers: [
             {
@@ -43,7 +43,7 @@ const questions = [
             },
             {
                 correct: true,
-                text: "Frau Stenzel"
+                text: "Schnecke"
             }
         ],
         points: 10
@@ -415,8 +415,10 @@ const selectAnswer = function(selection) {
         answerDiv.setAttribute("data-selectionconfirmed", "true");
         selectedAnswer.setAttribute("data-selected", "true");
         const correct = selectedAnswer.getAttribute("data-correct") === "true";
-        if (correct && !questions[currentContent].dontAddPoints) {
-            points += questions[currentContent].points;
+        if (correct) {
+			if (!questions[currentContent].dontAddPoints) {
+				points += questions[currentContent].points;
+			}
             succcessding.play();
         }
         else {
