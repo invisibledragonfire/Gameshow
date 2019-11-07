@@ -415,8 +415,10 @@ const selectAnswer = function(selection) {
         answerDiv.setAttribute("data-selectionconfirmed", "true");
         selectedAnswer.setAttribute("data-selected", "true");
         const correct = selectedAnswer.getAttribute("data-correct") === "true";
-        if (correct && !questions[currentContent].dontAddPoints) {
-            points += questions[currentContent].points;
+        if (correct) {
+			if (!questions[currentContent].dontAddPoints) {
+				points += questions[currentContent].points;
+			}
             succcessding.play();
         }
         else {
