@@ -26,7 +26,7 @@ const questions = [
         points: 5
     },
     {
-        image: "mutti.jpg",
+        image: "oma3.jpg",
         prompt: "Wer ist die Person auf dem Bild?",
         answers: [
             {
@@ -43,7 +43,7 @@ const questions = [
             },
             {
                 correct: true,
-                text: "Frau Stenzel"
+                text: "Schnecke"
             }
         ],
         points: 10
